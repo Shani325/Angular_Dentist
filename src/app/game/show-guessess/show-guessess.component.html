@@ -1,0 +1,12 @@
+{{func()}}
+<div class="lst">
+    <ul *ngFor="let g of allGuessess">
+        <li>Colors:
+            <ul *ngFor="let c of g.colors">
+                <li>{{c}}</li>
+            </ul>
+            בול: {{g.countB}}
+            פגיעה: {{g.countP}}
+        </li>
+    </ul>
+</div>

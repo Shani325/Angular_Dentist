@@ -1,0 +1,32 @@
+<!-- <person-form  (personsOutput)="setPersons($event)"></person-form>  -->
+
+<form *ngIf="addressInput" [formGroup]="addOrUpdateForm">
+    <input type="text" value="{{addressInput.id}}" name="id" formControlName="idControl"/>
+    <ng-container *ngIf="addOrUpdateForm.controls.idControl.errors && addOrUpdateForm.controls.idControl.dirty">
+        <div *ngIf="addOrUpdateForm.controls.idControl.errors?.required">השדה הוא שדה חובה</div>
+    </ng-container>
+    <br/>
+    <input type="text" value="{{addressInput.city}}" name="city" formControlName="cityControl"/>
+    <ng-container *ngIf="addOrUpdateForm.controls.cityControl.errors && addOrUpdateForm.controls.cityControl.dirty">
+        <div *ngIf="addOrUpdateForm.controls.cityControl.errors?.required">השדה הוא שדה חובה</div>
+    </ng-container>
+    <br/>
+    <input type="text" value="{{addressInput.street}}" name="street" formControlName="streetControl"/>
+    <ng-container *ngIf="addOrUpdateForm.controls.streetControl.errors && addOrUpdateForm.controls.streetControl.dirty">
+        <div *ngIf="addOrUpdateForm.controls.streetControl.errors?.required">השדה הוא שדה חובה</div>
+    </ng-container>
+    <br/>
+    <input type="text" value="{{addressInput.numOfHouse}}" name="num" formControlName="numControl"/>
+    <ng-container *ngIf="addOrUpdateForm.controls.numControl.errors && addOrUpdateForm.controls.numControl.dirty">
+        <div *ngIf="addOrUpdateForm.controls.numControl.errors?.required">השדה הוא שדה חובה</div>
+    </ng-container>
+    <br/>       
+    <select name="person" formControlName="personControl">
+        <option *ngFor="let person of persons" value="{{person.name}}">{{person.name}}</option>
+    </select>
+    <ng-container *ngIf="addOrUpdateForm.controls.personControl.errors && addOrUpdateForm.controls.personControl.dirty">
+        <div *ngIf="addOrUpdateForm.controls.personControl.errors?.required">השדה הוא שדה חובה</div>
+    </ng-container>
+    <br/>
+    <button [disabled]="addOrUpdateForm.invalid" (click)="addOrUpdate()">Confirm</button>
+</form>

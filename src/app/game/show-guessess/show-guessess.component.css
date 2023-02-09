@@ -1,0 +1,4 @@
+.lst{
+    display: flex;
+    flex-direction: row;
+}

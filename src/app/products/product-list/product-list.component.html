@@ -1,0 +1,11 @@
+<h1>Products</h1>
+<ul>
+    <li *ngFor="let product of products">
+        Id: {{product.id}}, 
+        Name: {{product.name}}, 
+        Price: {{product.price}}, 
+        Amount: {{product.amount}}
+        <button (click)="showDetailsInInputs(product)">Show & Update</button>
+    </li>    
+</ul>
+<product *ngIf="selectedProduct" [prod]="selectedProduct" (onConfirm)="addOrUpdate($event)"></product>

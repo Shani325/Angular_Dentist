@@ -1,21 +1,27 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ShowAddressPersonsComponent } from './addressPerson/show-address-persons/show-address-persons.component';
-import { BoolGameComponent } from './game/bool-game/bool-game.component';
-import { ProductListComponent } from './products/product-list/product-list.component';
+import { HoursGuard } from './directives-pipes/hours.guard';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
+
   {
-    path:'Addresses&Persons',
-    component:ShowAddressPersonsComponent
+    path: 'doctor/:id',
+    loadChildren: () => import('./doctor/doctor.module').then(m => m.DoctorModule),
+    canActivate:[HoursGuard]
   },
   {
-    path:'Game',
-    component:BoolGameComponent
+    path: 'secretary/:id',
+    loadChildren: () => import('./secretary/secretary.module').then(m => m.SecretaryModule),
+    canActivate:[HoursGuard]
   },
   {
-    path:'Products',
-    component:ProductListComponent
+    path: 'admin/:id',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+  },
+  {
+    path: '**',
+    component: LoginComponent,
   }
 ];
 

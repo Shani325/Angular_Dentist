@@ -1,8 +1,0 @@
-{{func()}}
-<queue *ngIf="!flag" (outCurColors)="checkChoose($event)"></queue>
-<div *ngIf="curChoice" >
-    תוצאות : בול = {{curChoice.countB}} ,פגיעה = {{curChoice.countP}}
-    <div *ngFor="let c of curChoice.colors">{{c}}</div>
-    <show-guessess [allGuessess]="guessess"></show-guessess>
-</div>
-<h1 *ngIf="flag">WIN!</h1>

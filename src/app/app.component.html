@@ -1,9 +1,8 @@
-<!-- <show-address-persons></show-address-persons>
-<bool-game></bool-game>
-<product-list></product-list> -->
-<h4 routerLink="/Addresses&Persons">Addresses & Persons</h4>
-<h4 routerLink="/Game">Game</h4>
-<h4 routerLink="/Products">Products</h4>
-<router-outlet>
-
-</router-outlet>
+<div class="container">
+    <button mat-flat-button color="primary" (click)="logOut()" class="topleft">Log Out</button>
+</div>
+<img about src="../assets/images/macabident.jpg"/>
+<router-outlet></router-outlet>
+<button mat-fab color="primary" aria-label="Example icon button with a home icon" class="bottomleft" (click)="goHome()">
+    <mat-icon>home</mat-icon>
+</button>
